@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "ios:build:dev": "eas build -p ios --profile development"
+    "ios:build:dev": "eas build -p ios --profile development",
+    "android:build:dev": " eas build -p android --profile development"
   },
   "dependencies": {
     "expo": "~45.0.0",
