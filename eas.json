@@ -10,13 +10,14 @@
       "developmentClient": true,
       "distribution": "internal"
     },
-    "preview2": {
+    "demo": {
       "android": {
-        "gradleCommand": ":app:assembleRelease"
-      }
-    },
-    "preview3": {
-      "developmentClient": true
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      },
+      "distribution": "internal"
     },
     "production": {}
   },
