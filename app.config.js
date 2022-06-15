@@ -1,5 +1,7 @@
+const IS_DEV = process.env.APP_VARIANT === "development"
+
 export default {
-  name: "EASTest",
+  name: IS_DEV ? "EASTest-dev" : "EASTest",
   slug: "EASTest",
   version: "1.0.0",
   orientation: "portrait",
@@ -16,14 +18,14 @@ export default {
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "com.jkobrynski.EASTest",
+    bundleIdentifier: IS_DEV ? "com.jkobrynski.EASTest.dev" : "com.jkobrynski.EASTest",
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/adaptive-icon.png",
       backgroundColor: "#FFFFFF",
     },
-    package: "com.jkobrynski.EASTest",
+    package: IS_DEV ? "com.jkobrynski.EASTest.dev" : "com.jkobrynski.EASTest",
   },
   web: {
     favicon: "./assets/favicon.png",
