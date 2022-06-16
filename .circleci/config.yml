@@ -16,7 +16,7 @@ jobs:
           command: yarn
       - run:
           name: Trigger build
-          command: npx eas-cli build -p all --profile development
+          command: npx eas-cli build -p all --profile development --non-interactive
       # - run:
       #     name: Trigger build
       #     command: npx eas-cli build --platform all --non-interactive
