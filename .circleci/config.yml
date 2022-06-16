@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: yarn ci
+          command: yarn
       # - run:
       #     name: Trigger build
       #     command: npx eas-cli build --platform all --non-interactive
