@@ -5,6 +5,7 @@ module.exports = function(api) {
     plugins: [
       ['module:react-native-dotenv'],
       ['inline-dotenv'],
+      ['transform-inline-environment-variables'],
     ],
   };
 };
