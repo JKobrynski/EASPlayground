@@ -7,7 +7,7 @@ executors:
     working_directory: ~/my-app
 
 jobs:
-  eas_build:
+  eas_build_dev:
     executor: default
     steps:
       - checkout
@@ -15,16 +15,29 @@ jobs:
           name: Install dependencies
           command: yarn
       - run:
-          name: Trigger build
+          name: Trigger EAS build 
           command: npx eas-cli build -p all --profile development --non-interactive
-      # - run:
-      #     name: Trigger build
-      #     command: npx eas-cli build --platform all --non-interactive
+  eas_build_demo:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Trigger EAS build
+          command: npx eas-cli build -p all --profile demo --non-interactive
 
 workflows:
-  build_app:
+  build_dev_app:
     jobs:
-      - eas_build:
+      - eas_build_dev:
           filters:
             branches:
-              only: main
+              only: development
+  build_demo_app:
+    jobs:
+      - eas_build_demo:
+          filters:
+            branches:
+              only: demo
