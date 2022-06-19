@@ -1,0 +1,43 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: cimg/node:lts
+    working_directory: ~/my-app
+
+jobs:
+  eas_build_dev:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Trigger EAS build 
+          command: npx eas-cli build -p all --profile development --non-interactive
+  eas_build_demo:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Trigger EAS build
+          command: npx eas-cli build -p all --profile demo --non-interactive
+
+workflows:
+  build_dev_app:
+    jobs:
+      - eas_build_dev:
+          filters:
+            branches:
+              only: development
+  build_demo_app:
+    jobs:
+      - eas_build_demo:
+          filters:
+            branches:
+              only: demo
