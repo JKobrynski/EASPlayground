@@ -1,1 +1,2 @@
-export { default as AnimatedAppLoader } from "./AnimatedAppLoader";
+export { default as AnimatedAppLoader } from "./AppLoader/AnimatedAppLoader";
+export { default as AnimatedAppLoaderSvg } from './AppLoaderSvg/AnimatedAppLoaderSvg'

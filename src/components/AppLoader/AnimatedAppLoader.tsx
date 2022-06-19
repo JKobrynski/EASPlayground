@@ -1,10 +1,9 @@
-import { View, Text } from "react-native";
 import React, { useEffect } from "react";
 import { useAssets } from "expo-asset";
-import { AnimatedSplashScreen } from "../screens";
+import { AnimatedSplashScreen } from "../../screens";
 
-const ngLogo = require("../../assets/ng-logo.png");
-const splashImage = require("../../assets/splash-dev.png");
+const ngLogo = require("../../../assets/ng-logo.png");
+const splashImage = require("../../../assets/splash-demo.png");
 
 const AnimatedAppLoader: React.FC = ({ children }) => {
   const [assets, error] = useAssets([ngLogo, splashImage]);
