@@ -7,7 +7,7 @@ export default {
   slug: "EASTest",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "./assets/icon.png",
+  icon: IS_DEV ? "./assets/icon-dev.png" : "./assets/icon-demo.png",
   userInterfaceStyle: "light",
   splash: {
     image: IS_DEV ? "./assets/splash-dev.png" : "./assets/splash-demo.png",
