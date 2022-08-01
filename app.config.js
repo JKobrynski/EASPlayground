@@ -3,7 +3,7 @@ import 'dotenv/config'
 const IS_DEV = process.env.APP_VARIANT === "development"
 
 export default {
-  name: IS_DEV ? "EASTest-dev" : "EASTest",
+  name: IS_DEV ? "Splash(dev)" : "Splash",
   slug: "EASTest",
   version: "1.0.0",
   orientation: "portrait",

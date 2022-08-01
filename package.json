@@ -13,7 +13,9 @@
     "ios:build:demo": "eas build -p ios --profile demo",
     "android:build:demo": " eas build -p android --profile demo",
     "publish:dev": "expo publish --release-channel development",
-    "publish:demo": "expo publish --release-channel demo"
+    "publish:demo": "expo publish --release-channel demo",
+    "build:dev:local:ios": "eas build -p ios --profile development --local",
+    "build:dev:local:android": "eas build -p android --profile development --local"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.3.1",
@@ -34,6 +36,7 @@
     "react-native": "0.68.2",
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "~2.2.1",
+    "react-native-keychain": "^8.1.1",
     "react-native-reanimated": "~2.8.0",
     "react-native-redash": "^16.3.0",
     "react-native-svg": "12.3.0",
