@@ -3,7 +3,6 @@ import React from "react";
 import * as Keychain from 'react-native-keychain'
 
 const HomeScreen = () => {
-  console.log(process.env.APP_NAME)
 
   const saveCredentials = async () => {
     try {
