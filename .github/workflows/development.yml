@@ -22,5 +22,5 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
       - name: Install dependencies
         run: yarn install
-      # - name: Build on EAS
-      #   run: eas build --platform all --profile development --non-interactive
+      - name: Build on EAS
+        run: eas build --platform all --profile development --non-interactive
