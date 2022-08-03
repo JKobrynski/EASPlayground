@@ -29,15 +29,15 @@ jobs:
           command: npx eas-cli build -p all --profile demo --non-interactive
 
 workflows:
-  build_dev_app:
-    jobs:
-      - eas_build_dev:
-          filters:
-            branches:
-              only: development
-  build_demo_app:
-    jobs:
-      - eas_build_demo:
-          filters:
-            branches:
-              only: demo
+  # build_dev_app:
+  #   jobs:
+  #     - eas_build_dev:
+  #         filters:
+  #           branches:
+  #             only: development
+  # build_demo_app:
+  #   jobs:
+  #     - eas_build_demo:
+  #         filters:
+  #           branches:
+  #             only: demo
