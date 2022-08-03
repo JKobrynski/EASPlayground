@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - development
+      - demo
 jobs:
   build:
     name: Install and build
@@ -22,5 +22,5 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
       - name: Install dependencies
         run: yarn install
-      # - name: Build on EAS
-      #   run: eas build --platform all --profile development --non-interactive
+      - name: Build on EAS
+        run: eas build --platform all --profile demo --non-interactive
