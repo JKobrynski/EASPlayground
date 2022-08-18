@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
@@ -28,6 +29,7 @@ const AnimatedSplashScreen: React.FC<AnimatedSplashScreenSvgProps> = ({
   const [isAppReady, setIsAppReady] = useState(false);
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [scale, setScale] = useState(0);
+
   const progress = useSharedValue(0);
 
   useEffect(() => {
@@ -35,14 +37,7 @@ const AnimatedSplashScreen: React.FC<AnimatedSplashScreenSvgProps> = ({
   }, []);
 
   useEffect(() => {
-    if (scale !== 0 && !isAppReady) {
-      onImageLoaded();
-    }
-  }, [scale, isAppReady]);
-
-  const onImageLoaded = async () => {
-    try {
-      await SplashScreen.hideAsync();
+    if (isAppReady) {
       progress.value = withSequence(
         withTiming(1, {
           duration: 1000,
@@ -54,6 +49,20 @@ const AnimatedSplashScreen: React.FC<AnimatedSplashScreenSvgProps> = ({
           () => runOnJS(onAnimationFinished)()
         )
       );
+    }
+  }, [isAppReady]);
+
+  useEffect(() => {
+    if (scale !== 0 && !isAppReady) {
+      onScaleCalculated();
+    }
+  }, [scale, isAppReady]);
+
+  const onAnimationFinished = () => setIsAnimationComplete(true);
+
+  const onScaleCalculated = async () => {
+    try {
+      await SplashScreen.hideAsync();
     } catch (e) {
       console.log("splash screen error", e);
     } finally {
@@ -66,14 +75,12 @@ const AnimatedSplashScreen: React.FC<AnimatedSplashScreenSvgProps> = ({
     setScale(1 / widthScale);
   };
 
-  const onAnimationFinished = () => setIsAnimationComplete(true);
-
   return (
     <>
-      {isAppReady && isAnimationComplete && (
+      {isAppReady && (
         <Animated.View
-          style={styles.appWrapper}
           entering={FadeIn.duration(1000)}
+          style={styles.appWrapper}
         >
           {children}
         </Animated.View>

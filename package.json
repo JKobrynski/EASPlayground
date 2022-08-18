@@ -14,8 +14,10 @@
     "android:build:demo": " eas build -p android --profile demo",
     "publish:dev": "expo publish --release-channel development",
     "publish:demo": "expo publish --release-channel demo",
-    "build:dev:local:ios": "eas build -p ios --profile development --local",
-    "build:dev:local:android": "eas build -p android --profile development --local"
+    "ios:build:dev:local": "eas build -p ios --profile development --local",
+    "android:build:dev:local": "eas build -p android --profile development --local",
+    "ios:build:demo:local": "eas build -p ios --profile demo --local",
+    "android:build:demo:local": "eas build -p android --profile demo --local"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.3.1",

@@ -1,7 +1,7 @@
 import { Asset } from "expo-asset";
 
 interface AnimatedSplashScreenSvgProps {
-  splash: Asset;
+  splash: Asset | undefined;
 }
 
 export default AnimatedSplashScreenSvgProps;

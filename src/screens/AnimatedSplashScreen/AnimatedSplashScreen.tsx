@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { View, Text, Dimensions, Image } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";

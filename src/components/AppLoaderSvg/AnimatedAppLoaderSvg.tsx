@@ -1,23 +1,29 @@
-import React, { useEffect } from "react";
-import { useAssets } from "expo-asset";
+import React, { useEffect, useState } from "react";
+import { useAssets, Asset } from "expo-asset";
 import { AnimatedSplashScreenSvg } from "../../screens";
 
 const splashImage = require("../../../assets/splash-dev.png");
 
 const AnimatedAppLoader: React.FC = ({ children }) => {
-  const [assets, error] = useAssets([splashImage]);
+  const [isSplashReady, setIsSplashReady] = useState(false);
+  const [splash, setSplash] = useState<Asset>();
 
   useEffect(() => {
-    if (error) {
-      console.log(error);
+    async function prepare() {
+      const asset = await Asset.fromModule(splashImage).downloadAsync();
+      setSplash(asset);
     }
-  }, [error]);
 
-  if (!assets?.length) {
+    prepare();
+  }, []);
+
+  useEffect(() => {
+    if (splash && !isSplashReady) setIsSplashReady(true);
+  }, [splash]);
+
+  if (!isSplashReady) {
     return null;
   }
-
-  const [splash] = assets;
 
   return (
     <AnimatedSplashScreenSvg splash={splash}>
